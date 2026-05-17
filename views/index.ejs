@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Agent</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h1>🤖 Research Agent</h1>
+
+  <div id="chat"></div>
+
+  <input id="input" placeholder="Ask anything..." />
+  <button onclick="send()">Send</button>
+
+  <script>
+    async function send() {
+      const message = document.getElementById('input').value
+      if (!message) return
+
+      document.getElementById("chat").innerHTML += `<p><b>You:</b> ${message}</p>`
+      document.getElementById("input").value = ''
+
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      })
+
+      const data = await res.json()
+
+      document.getElementById("chat").innerHTML += `<p><b>Agent:</b> ${data.reply}</p>`
+    }
+  </script>
+
+</body>
+</html>

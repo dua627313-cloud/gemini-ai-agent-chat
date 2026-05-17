@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.75",
+    "@google/genai": "^2.3.0",
+    "ai": "^6.0.184",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "mathjs": "^15.2.0",
+    "zod": "^4.4.3"
+  }
+}
